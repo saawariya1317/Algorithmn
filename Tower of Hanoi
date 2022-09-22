@@ -1,0 +1,35 @@
+#include <stdio.h> 
+
+  
+// C recursive function to solve tower of hanoi puzzle 
+
+void towerOfHanoi(int n, char from_tray, char to_tray, char aux_tray) 
+{ 
+
+    if (n == 1) 
+
+    { 
+
+        printf("\n Move disk 1 from tray %c to tray %c", from_tray, to_tray); 
+
+        return; 
+
+    } 
+
+    towerOfHanoi(n-1, from_tray, aux_tray, to_tray); 
+
+    printf("\n Move disk %d from tray %c to tray %c", n, from_tray, to_tray); 
+
+    towerOfHanoi(n-1, aux_tray, to_tray, from_tray); 
+} 
+
+  
+
+int main() 
+{ 
+
+    int n = 3; // Number of disks 
+
+    towerOfHanoi(n, 'X', 'Z', 'Y');  
+
+    return 0;}
