@@ -1,0 +1,49 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <iostream>
+#include<bits/stdc++.h>
+
+using namespace std;
+//Maximum sum of subarray
+
+int kadane_algorithmn(int arr[],int n)      //but it is Not valid for all negative number,use diff approach
+{
+    int curr_sem=0;
+    int max_sum=INT_MIN;
+    
+    for(int i=0;i<n;i++){
+        curr_sem=curr_sem+arr[i];
+        if(curr_sem>max_sum)
+            max_sum=curr_sem;
+        if(curr_sem<0)
+            curr_sem=0;
+        }
+    return max_sum;
+}
+
+
+int main()
+{
+    
+    int size;
+    cout<<"Enter size of array"<<endl;
+    cin>>size;
+    int arr[size];
+    
+    cout<<"Enter "<<size<<" Elements of Array "<<endl;
+    for(int i=0;i<size;i++){
+        cin>>arr[i];
+    }
+    cout<<endl<<"Maximum sum of subarray is : ";
+    cout<<kadane_algorithmn(arr,size);
+    
+    
+    return 0;
+}
+
